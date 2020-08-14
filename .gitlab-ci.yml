@@ -1,0 +1,7 @@
+stages:
+  - test
+
+jest:
+  stage: test
+  script:
+    - yarn test
