@@ -69,8 +69,8 @@ describe('https://nathanfriend.io', () => {
   });
 
   describe('content section', () => {
-    it("has the article's title", async () => {
-      await expectElementNotToBeEmpty('.content-section h1');
+    it("has the article's title, rendered as a link", async () => {
+      await expectElementNotToBeEmpty('.content-section a h1');
     });
 
     it("has the article's date and approximate reading time", async () => {
