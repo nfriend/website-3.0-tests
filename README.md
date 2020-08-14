@@ -7,6 +7,8 @@
 
 Automated tests for [my personal website](https://nathanfriend.io).
 
+[View the source on GitLab.](https://gitlab.com/nfriend/website-3.0-tests)
+
 ## Getting started
 
 1. Clone this repo
