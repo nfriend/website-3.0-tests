@@ -1,5 +1,10 @@
 # website-3.0-tests
 
+<a href="https://gitlab.com/nfriend/website-3.0-tests/-/pipelines/latest"
+  target="_blank"><img
+  src="https://gitlab.com/nfriend/website-3.0-tests/badges/master/pipeline.svg"
+  alt="GitLab build status"></a>
+
 Automated tests for [my personal website](https://nathanfriend.io).
 
 ## Getting started
