@@ -1,5 +1,11 @@
 default:
   image: buildkite/puppeteer:5.2.1
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - .yarn
+  before_script:
+    - yarn install --cache-folder .yarn --frozen-lockfile
 
 stages:
   - test
