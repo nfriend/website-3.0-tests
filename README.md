@@ -13,4 +13,5 @@ Automated tests for [my personal website](https://nathanfriend.io).
 
 1. Clone this repo
 1. Run `yarn` to install dependencies
-1. Run `yarn test` to run tests
+1. Run `yarn test` to run tests (or `yarn test --watch` to re-test when
+   files are saved)
