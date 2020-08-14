@@ -2230,7 +2230,7 @@ jest-jasmine2@^26.4.0:
     pretty-format "^26.4.0"
     throat "^5.0.0"
 
-jest-junit@^11.1.0:
+jest-junit@11.1.0:
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/jest-junit/-/jest-junit-11.1.0.tgz#79cd53948e44d62b2b30fa23ea0d7a899d2c8d7a"
   integrity sha512-c2LFOyKY7+ZxL5zSu+WHmHfsJ2wqbOpeYJ4Uu26yMhFxny2J2NQj6AVS7M+Eaxji9Q/oIDDK5tQy0DGzDp9xOw==
@@ -2285,7 +2285,7 @@ jest-pnp-resolver@^1.2.2:
   resolved "https://registry.yarnpkg.com/jest-pnp-resolver/-/jest-pnp-resolver-1.2.2.tgz#b704ac0ae028a89108a4d040b3f919dfddc8e33c"
   integrity sha512-olV41bKSMm8BdnuMsewT4jqlZ8+3TCARAXjZGT9jcoSnrfUnRCqnMoF9XEeoWjbzObpqF9dRhHQj0Xb9QdF6/w==
 
-jest-puppeteer@^4.4.0:
+jest-puppeteer@4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/jest-puppeteer/-/jest-puppeteer-4.4.0.tgz#4b906e638a5e3782ed865e7b673c82047b85952e"
   integrity sha512-ZaiCTlPZ07B9HW0erAWNX6cyzBqbXMM7d2ugai4epBDKpKvRDpItlRQC6XjERoJELKZsPziFGS0OhhUvTvQAXA==
@@ -2454,7 +2454,7 @@ jest-worker@^26.3.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest@^26.4.0:
+jest@26.4.0:
   version "26.4.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-26.4.0.tgz#495e81dcff40f8a656e567c664af87b29c5c5922"
   integrity sha512-lNCOS+ckRHE1wFyVtQClBmbsOVuH2GWUTJMDL3vunp9DXcah+V8vfvVVApngClcdoc3rgZpqOfCNKLjxjj2l4g==
@@ -3086,7 +3086,7 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-puppeteer@^5.2.1:
+puppeteer@5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-5.2.1.tgz#7f0564f0a5384f352a38c8cc42af875cd87f4ea6"
   integrity sha512-PZoZG7u+T6N1GFWBQmGVG162Ak5MAy8nYSVpeeQrwJK2oYUlDWpHEJPcd/zopyuEMTv7DiztS1blgny1txR2qw==
