@@ -1,28 +1,33 @@
 describe('https://nathanfriend.io', () => {
+  const getElementText = async (selector) =>
+    await page.$eval(selector, (el) => el.textContent);
+
+  const expectElementToExist = async (selector) =>
+    expect(await page.$(selector)).toBeTruthy();
+
+  const expectElementNotToBeEmpty = async (selector) => {
+    const elementContent = await getElementText(selector);
+    expect(elementContent.trim().length).toBeGreaterThan(0);
+  };
+
   beforeAll(async () => {
     await page.goto('https://nathanfriend.io');
   });
 
   it('has the correct title', async () => {
-    const title = await page.title();
-    expect(title).toBe('Nathan Friend');
+    expect(await page.title()).toBe('Nathan Friend');
   });
 
   it('has the correct header', async () => {
-    const headerText = await page.$eval('h1', (el) => el.textContent);
-    expect(headerText).toBe('Nathan Friend');
+    expect(await getElementText('h1')).toBe('Nathan Friend');
   });
 
   it('has summary text', async () => {
-    const summary = (
-      await page.$eval('.site-description', (el) => el.textContent)
-    ).trim();
-    expect(summary.length).toBeGreaterThan(0);
+    await expectElementNotToBeEmpty('.site-description');
   });
 
   it('has a GitLab corner', async () => {
-    const gitlabCorner = await page.$('.gitlab-corner');
-    expect(gitlabCorner).toBeTruthy();
+    await expectElementToExist('.gitlab-corner');
   });
 
   describe('sidebar links', () => {
@@ -32,9 +37,8 @@ describe('https://nathanfriend.io', () => {
       ${'Projects'} | ${'/projects'}
       ${'Blog'}     | ${'/all-posts'}
     `('has a "$display" link that points to $url', async ({ display, url }) => {
-      const linkText = await page.$eval(
+      const linkText = await getElementText(
         `.sidebar-links-container a[href="${url}"]`,
-        (el) => el.textContent,
       );
 
       expect(linkText).toBe(display);
@@ -64,20 +68,36 @@ describe('https://nathanfriend.io', () => {
     );
   });
 
+  describe('content section', () => {
+    it("has the article's title", async () => {
+      await expectElementNotToBeEmpty('.content-section h1');
+    });
+
+    it("has the article's date and approximate reading time", async () => {
+      const articleDateAndLength = await getElementText('.content-section > p');
+
+      // Should look something like "November 16, 2018 | 2 minutes to read"
+      const regex = /[a-z]+ \d{1,2}, 20\d{2}\s+\|\s+.*to read/i;
+      expect(articleDateAndLength).toMatch(regex);
+    });
+
+    it("has the article's content", async () => {
+      await expectElementNotToBeEmpty('.content-section .content-container');
+    });
+  });
+
   it('has a search bar', async () => {
-    const searchBar = await page.$('#footer-search-bar');
-    expect(searchBar).toBeTruthy();
+    await expectElementToExist('#footer-search-bar');
   });
 
   it('has a copyright info', async () => {
-    const copyrightText = await page.$eval('#legal', (el) => el.textContent);
+    const copyrightText = await getElementText('#legal');
     expect(copyrightText).toContain('Copyright Nathan Friend © 2012');
   });
 
   it('has a link to the "Attributions" pag', async () => {
-    const attributionsLinkText = await page.$eval(
+    const attributionsLinkText = await getElementText(
       `#legal a[href="/attributions"]`,
-      (el) => el.textContent,
     );
 
     expect(attributionsLinkText).toBe('Attributions');
