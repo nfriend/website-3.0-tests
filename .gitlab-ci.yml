@@ -14,3 +14,6 @@ jest:
   stage: test
   script:
     - yarn test
+  artifacts:
+    reports:
+      junit: junit.xml
