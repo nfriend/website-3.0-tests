@@ -1,3 +1,5 @@
+const { timeout } = require('./util');
+
 describe('DNS tests', () => {
   const NATHAN_FRIEND_IO = 'https://nathanfriend.io/';
   const WEDDING_WEBSITE = 'https://nathanfriend.io/wedding/';
@@ -21,6 +23,11 @@ describe('DNS tests', () => {
         await page.goto(`${p}://${start}`);
 
         expect(page.url()).toBe(end);
+
+        // Wait between each test to avoid pegging the server
+        // Note: this is addition to the global timeout
+        // specified in setup.js
+        await timeout(1000);
       }
     },
   );
