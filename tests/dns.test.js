@@ -1,34 +1,36 @@
 const { timeout } = require('./util');
 
 describe('DNS tests', () => {
-  const NATHAN_FRIEND_IO = 'https://nathanfriend.io/';
-  const WEDDING_WEBSITE = 'https://nathanfriend.io/wedding/';
+  const protocols = ['http', 'https'];
+  const subdomains = ['www.', ''];
+  const tlds = ['io', 'com'];
 
-  test.each`
-    start                                 | end
-    ${'nathanfriend.io'}                  | ${NATHAN_FRIEND_IO}
-    ${'www.nathanfriend.io'}              | ${NATHAN_FRIEND_IO}
-    ${'nathanfriend.com'}                 | ${NATHAN_FRIEND_IO}
-    ${'www.nathanfriend.com'}             | ${NATHAN_FRIEND_IO}
-    ${'bethany.and.nathanfriend.io'}      | ${WEDDING_WEBSITE}
-    ${'www.bethany.and.nathanfriend.io'}  | ${WEDDING_WEBSITE}
-    ${'bethany.and.nathanfriend.com'}     | ${WEDDING_WEBSITE}
-    ${'www.bethany.and.nathanfriend.com'} | ${WEDDING_WEBSITE}
-  `(
-    'redirects a request to http(s)://$start to $end',
-    async ({ start, end }) => {
-      const protocols = ['http', 'https'];
+  const testSite = (name, endUrl) => {
+    for (const protocol of protocols) {
+      for (const subdomain of subdomains) {
+        for (const tld of tlds) {
+          const startUrl = `${protocol}://${subdomain}${name}.${tld}`;
 
-      for (const p of protocols) {
-        await page.goto(`${p}://${start}`);
+          it(`redirects a request to ${startUrl} to ${endUrl}`, async () => {
+            await page.goto(startUrl);
 
-        expect(page.url()).toBe(end);
+            expect(page.url()).toBe(endUrl);
 
-        // Wait between each test to avoid pegging the server
-        // Note: this is addition to the global timeout
-        // specified in setup.js
-        await timeout(1000);
+            // Wait between each test to avoid pegging the server
+            // Note: this is addition to the global timeout
+            // specified in setup.js
+            await timeout(1000);
+          });
+        }
       }
-    },
-  );
+    }
+  };
+
+  describe('main website', () => {
+    testSite('nathanfriend', 'https://nathanfriend.io/');
+  });
+
+  describe('wedding website', () => {
+    testSite('bethany.and.nathanfriend', 'https://nathanfriend.io/wedding/');
+  });
 });
