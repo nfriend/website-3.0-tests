@@ -1,8 +1,4 @@
-const {
-  getElementText,
-  expectElementNotToBeEmpty,
-  expectElementToExist,
-} = require('./util');
+const { getElementText, expectElementToExist } = require('./util');
 
 describe('Inspirograph', () => {
   let response;
