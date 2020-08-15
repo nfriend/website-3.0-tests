@@ -13,7 +13,7 @@ stages:
 jest:
   stage: test
   script:
-    - yarn test
+    - yarn test --testTimeout=15000
   artifacts:
     reports:
       junit: junit.xml
