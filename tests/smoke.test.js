@@ -54,11 +54,13 @@ describe('Smoke tests', () => {
     );
   });
 
-  describe('PDFs', () => {
+  describe('files', () => {
     it.each`
       url
       ${'https://nathanfriend.io/battleship.pdf'}
       ${'https://nathanfriend.io/LegoGitLabTanukiInstructions.pdf'}
+      ${'https://nathanfriend.io/skills/stuff-ryan-says/hey.mp3'}
+      ${'https://nathanfriend.io/skills/tone-drone/A4.mp3'}
     `('$url returns a 200', async ({ url }) => {
       const response = await axios.get(url);
 
