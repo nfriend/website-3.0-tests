@@ -74,8 +74,6 @@ describe('Roggle', () => {
 
     const board2Letters = await getLetters();
 
-    console.log(board2Letters);
-
     expect(board1Letters).toEqual(board2Letters);
   });
 });
