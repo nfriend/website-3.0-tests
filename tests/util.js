@@ -7,4 +7,20 @@ const timeout = async (ms = 0) =>
     setTimeout(resolve, ms);
   });
 
-module.exports = { timeout };
+const getElementText = async (selector) =>
+  await page.$eval(selector, (el) => el.textContent);
+
+const expectElementToExist = async (selector) =>
+  expect(await page.$(selector)).toBeTruthy();
+
+const expectElementNotToBeEmpty = async (selector) => {
+  const elementContent = await getElementText(selector);
+  expect(elementContent.trim().length).toBeGreaterThan(0);
+};
+
+module.exports = {
+  timeout,
+  getElementText,
+  expectElementToExist,
+  expectElementNotToBeEmpty,
+};
