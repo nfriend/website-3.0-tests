@@ -3,6 +3,10 @@ const axios = require('axios').default;
 
 describe('Smoke tests', () => {
   describe('web pages', () => {
+    // Currently skipping the Roggle tests due to issues with auto playing video.
+    // See roggle.test.js for more details.
+    // ${'https://nathanfriend.io/roggle/'}               | ${'Roggle'}                          | ${'h1'}                            | ${'Roggle'}
+
     it.each`
       url                                                | title                                | selector                           | text
       ${'https://nathanfriend.io'}                       | ${'Nathan Friend'}                   | ${'h1'}                            | ${'Nathan Friend'}
@@ -13,7 +17,6 @@ describe('Smoke tests', () => {
       ${'https://nathanfriend.io/attributions'}          | ${'Attributions'}                    | ${'.content-section h1'}           | ${'Attributions'}
       ${'https://nathanfriend.io/inspirograph/'}         | ${'Inspirograph'}                    | ${'.gear-label'}                   | ${'24'}
       ${'https://nathanfriend.io/inspirograph/gallery/'} | ${'Inspirograph'}                    | ${'.pagination-link'}              | ${'Previous'}
-      ${'https://nathanfriend.io/roggle/'}               | ${'Roggle'}                          | ${'h1'}                            | ${'Roggle'}
       ${'https://nathanfriend.io/cooltojs/'}             | ${'CoolToJS'}                        | ${'h1'}                            | ${'CoolToJS'}
       ${'https://nathanfriend.io/theremin/'}             | ${'Theremin'}                        | ${'h1'}                            | ${'Theremin'}
       ${'https://nathanfriend.io/origins/'}              | ${'Nathan Friend: Origins'}          | ${'#origins-overlay > div'}        | ${'Use the arrow keys And ENTER to select a file to run:'}
