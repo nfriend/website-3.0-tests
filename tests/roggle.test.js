@@ -1,12 +1,6 @@
 const { timeout, getElementText } = require('./util');
 
-/**
- * Currently skipping these tests since they occasionally
- * cause an error in the console like:
- * "DOMException: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD"
- * ... which causes the tests to fail.
- */
-describe.skip('Roggle', () => {
+describe('Roggle', () => {
   let response;
 
   /**
