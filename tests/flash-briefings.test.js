@@ -1,14 +1,6 @@
-const { timeout } = require('./util');
 const axios = require('axios').default;
 
 describe('Flash briefing JSON files', () => {
-  beforeEach(async () => {
-    // Wait between each test to avoid pegging the server
-    // Note: this is addition to the global timeout
-    // specified in setup.js
-    await timeout(1000);
-  });
-
   it.each`
     url
     ${'https://nathanfriend.io/flash-briefings/fortune-cookie.json'}

@@ -1,14 +1,7 @@
-const { timeout, getElementText } = require('./util');
+const { getElementText } = require('./util');
 const axios = require('axios').default;
 
 describe('Smoke tests', () => {
-  beforeEach(async () => {
-    // Wait between each test to avoid pegging the server
-    // Note: this is addition to the global timeout
-    // specified in setup.js
-    await timeout(1000);
-  });
-
   describe('web pages', () => {
     it.each`
       url                                                | title                                | selector                           | text

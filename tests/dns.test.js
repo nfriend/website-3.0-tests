@@ -1,13 +1,4 @@
-const { timeout } = require('./util');
-
 describe('DNS tests', () => {
-  beforeEach(async () => {
-    // Wait between each test to avoid pegging the server
-    // Note: this is addition to the global timeout
-    // specified in setup.js
-    await timeout(1000);
-  });
-
   const protocols = ['http', 'https'];
   const subdomains = ['www.', ''];
   const tlds = ['io', 'com'];
