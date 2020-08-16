@@ -13,5 +13,12 @@ Automated tests for [my personal website](https://nathanfriend.io).
 
 1. Clone this repo
 1. Run `yarn` to install dependencies
-1. Run `yarn test` to run tests (or `yarn test --watch` to re-test when
-   files are saved)
+1. Run `yarn test` to run tests (or `yarn test --watch` to re-test when files
+   are saved)
+
+## About the tests
+
+These tests run against the live version of https://nathanfriend.io. Because of
+this, it's wise to make sure the tests aren't being too aggressive 🙂. However,
+this shouldn't be too much of an issue since the tests [are rate
+limited](./tests/setup.js).
