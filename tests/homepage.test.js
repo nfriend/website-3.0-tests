@@ -109,26 +109,6 @@ describe('nathanfriend.io', () => {
 
       expect(attributionsLinkText).toBe('Attributions');
     });
-
-    describe('404 behavior', () => {
-      it("has the article's title, rendered as a link", async () => {
-        await expectElementNotToBeEmpty('.content-section a h1');
-      });
-
-      it("has the article's date and approximate reading time", async () => {
-        const articleDateAndLength = await getElementText(
-          '.content-section > p',
-        );
-
-        // Should look something like "November 16, 2018 | 2 minutes to read"
-        const regex = /[a-z]+ \d{1,2}, 20\d{2}\s+\|\s+.*to read/i;
-        expect(articleDateAndLength).toMatch(regex);
-      });
-
-      it("has the article's content", async () => {
-        await expectElementNotToBeEmpty('.content-section .content-container');
-      });
-    });
   });
 
   describe('404 behavior', () => {
