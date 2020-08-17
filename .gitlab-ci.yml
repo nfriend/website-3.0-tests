@@ -9,6 +9,7 @@ default:
 
 stages:
   - test
+  - notify
 
 jest:
   stage: test
@@ -17,3 +18,9 @@ jest:
   artifacts:
     reports:
       junit: junit.xml
+
+notify:
+  stage: notify
+  script:
+    - scripts/post-to-pushover.js
+  when: on_failure
