@@ -85,7 +85,7 @@ describe('resume.nathanfriend.io', () => {
 
   it('renders main sections', async () => {
     const allH2Content = await page.$$eval('h2', (h2s) =>
-      h2s.map((el) => el.textContent?.trim()),
+      h2s.map((el) => (el.textContent || '').trim()),
     );
 
     for (const section of [
