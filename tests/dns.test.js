@@ -26,4 +26,10 @@ describe('DNS tests', () => {
   describe('wedding website', () => {
     testSite('bethany.and.nathanfriend', 'https://nathanfriend.io/wedding/');
   });
+
+  describe('a broken test', () => {
+    it('fails', () => {
+      expect(1).toBe(2);
+    });
+  });
 });
