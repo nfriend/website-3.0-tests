@@ -22,3 +22,15 @@ These tests run against the live version of https://nathanfriend.io. Because of
 this, it's wise to make sure the tests aren't being too aggressive 🙂. However,
 this shouldn't be too much of an issue since the tests [are rate
 limited](./tests/setup.js).
+
+## Notifications
+
+When at least one test fails, a push notification is sent via
+[Pushover](https://pushover.net/). In order for this to work, the following
+environment variables need to be available to the pipeline:
+
+| Variable name     | Description                            |
+| ----------------- | -------------------------------------- |
+| `PUSHOVER_TOKEN`  | The Pushover API token                 |
+| `PUSHOVER_USER`   | The Pushover user ID                   |
+| `PUSHOVER_DEVICE` | The device to send the notification to |
