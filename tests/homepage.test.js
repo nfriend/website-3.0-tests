@@ -4,7 +4,7 @@ const {
   expectElementToExist,
 } = require('./util');
 
-describe('https://nathanfriend.io', () => {
+describe('nathanfriend.io', () => {
   describe('homepage content', () => {
     let response;
 
