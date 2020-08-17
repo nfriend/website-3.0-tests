@@ -12,7 +12,7 @@ axios
     // Optional fields
     device: process.env.PUSHOVER_DEVICE,
     title: 'nathanfriend.io',
-    url: 'https://gitlab.com/nfriend/website-3.0-tests/-/pipelines/latest',
+    url: process.env.CI_PIPELINE_URL,
     url_title: 'View pipeline',
     sound: 'falling',
   })
