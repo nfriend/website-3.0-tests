@@ -102,12 +102,36 @@ describe('nathanfriend.io', () => {
       expect(copyrightText).toContain('Copyright Nathan Friend © 2012');
     });
 
-    it('has a link to the "Attributions" pag', async () => {
+    it('has a link to the "Attributions" page', async () => {
       const attributionsLinkText = await getElementText(
         `#legal a[href="/attributions"]`,
       );
 
       expect(attributionsLinkText).toBe('Attributions');
+    });
+
+    describe.only('deployment info', () => {
+      it('has the date, time, and commit of the last deployment', async () => {
+        const deploymentInfoText = await getElementText('#deployment-info');
+
+        expect(deploymentInfoText).toMatch(
+          /Site last deployed on \d{4}-\d{2}-\d{2} at \d{2}:\d{2}:\d{2} UTC for commit\s+[a-fA-F0-9]{8}/,
+        );
+      });
+
+      it('has a link to the source', async () => {
+        expect(
+          await getElementText(
+            '#deployment-info a[href="https://gitlab.com/nfriend/website-3.0"]',
+          ),
+        ).toContain('View the source on GitLab');
+      });
+
+      it('has a link to the latest pipeline', async () => {
+        await expectElementToExist(
+          '#deployment-info a[href="https://gitlab.com/nfriend/website-3.0/-/pipelines/latest"]',
+        );
+      });
     });
   });
 
