@@ -11,8 +11,8 @@ describe('Smoke tests', () => {
       ${'https://nathanfriend.io/all-posts'}             | ${'Nathan Friend'}                   | ${'.content-section h1'}           | ${'Blog'}
       ${'https://nathanfriend.io/gitlab-contributions'}  | ${'My GitLab Contributions in a 🥜'} | ${'.content-section h1'}           | ${'My GitLab Contributions in a 🥜'}
       ${'https://nathanfriend.io/attributions'}          | ${'Attributions'}                    | ${'.content-section h1'}           | ${'Attributions'}
-      ${'https://nathanfriend.io/inspirograph/'}         | ${'Inspirograph'}                    | ${'.gear-label'}                   | ${'24'}
-      ${'https://nathanfriend.io/inspirograph/gallery/'} | ${'Inspirograph'}                    | ${'.pagination-link'}              | ${'Previous'}
+      ${'https://nathanfriend.io/inspiral-web/'}         | ${'Inspiral Web'}                    | ${'.gear-label'}                   | ${'24'}
+      ${'https://nathanfriend.io/inspiral-web/gallery/'} | ${'Inspiral Web'}                    | ${'.pagination-link'}              | ${'Previous'}
       ${'https://nathanfriend.io/roggle/'}               | ${'Roggle'}                          | ${'h1'}                            | ${'Roggle'}
       ${'https://nathanfriend.io/cooltojs/'}             | ${'CoolToJS'}                        | ${'h1'}                            | ${'CoolToJS'}
       ${'https://nathanfriend.io/theremin/'}             | ${'Theremin'}                        | ${'h1'}                            | ${'Theremin'}
