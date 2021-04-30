@@ -1,11 +1,11 @@
 const { getElementText, expectElementToExist } = require('./util');
 
-describe('Inspirograph', () => {
+describe('Inspiral Web', () => {
   let response;
 
   describe('main page', () => {
     beforeAll(async () => {
-      response = await page.goto('https://nathanfriend.io/inspirograph');
+      response = await page.goto('https://nathanfriend.io/inspiral-web');
     });
 
     it('returns a 200', () => {
@@ -20,7 +20,7 @@ describe('Inspirograph', () => {
   describe('gallery', () => {
     beforeAll(async () => {
       response = await page.goto(
-        'https://nathanfriend.io/inspirograph/gallery',
+        'https://nathanfriend.io/inspiral-web/gallery',
       );
 
       await page.waitForSelector('.image-thumbnail');
